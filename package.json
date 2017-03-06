@@ -1,0 +1,23 @@
+{
+  "name": "creative-coding-template",
+  "version": "1.0.0",
+  "description": "Creative Coding Template - Webpack/ES6",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adammarcwilliams/creative-coding-template.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/adammarcwilliams/creative-coding-template/issues"
+  },
+  "homepage": "https://github.com/adammarcwilliams/creative-coding-template#readme",
+  "devDependencies": {
+    "webpack": "^2.2.1"
+  }
+}
