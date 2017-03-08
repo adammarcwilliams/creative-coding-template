@@ -63,15 +63,68 @@
 /******/ 	__webpack_require__.p = "";
 
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 0);
+/******/ 	return __webpack_require__(__webpack_require__.s = 1);
 /******/ })
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
-console.log('I have been built!');
+"use strict";
 
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.createCanvas = createCanvas;
+exports.createHiddenCanvas = createHiddenCanvas;
+var w = void 0,
+    width = void 0,
+    h = void 0,
+    height = void 0;
+var canvas = void 0;
+
+function createCanvas(canvasName) {
+  canvas = document.createElement('canvas');
+  var body = document.querySelector('body');
+  canvas.setAttribute('id', canvasName);
+  canvas.style.position = 'absolute';
+  canvas.style.left = '0px';
+  canvas.style.top = '0px';
+  body.appendChild(canvas);
+  var ctx = canvas.getContext('2d');
+  resize();
+  window.addEventListener('resize', resize, false);
+  return ctx;
+}
+
+function createHiddenCanvas(canvasName) {
+  var ctx = createCanvas(canvasName);
+  canvas.style.left = -w + 'px';
+  return ctx;
+}
+
+function resize() {
+  var c = [].slice.call(document.getElementsByTagName('canvas'));
+  width = w = window.innerWidth;
+  height = h = window.innerHeight;
+  c.map(function (x) {
+    x.width = width;
+    x.height = height;
+  });
+  console.log('resize: ' + w + ':' + h);
+}
+
+/***/ }),
+/* 1 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _canvas = __webpack_require__(0);
+
+var ctx = (0, _canvas.createCanvas)('newCanvas');
 
 /***/ })
 /******/ ]);

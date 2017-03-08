@@ -1,9 +1,29 @@
-var path = require('path');
+const path = require('path');
 
-module.exports = {
+const config = {
   entry: './app/index.js',
   output: {
-    filename: 'bundle.js',
-    path: path.resolve(__dirname, 'dist')
+    filename: './dist/bundle.js'
+  },
+  module: {
+    rules: [
+      {
+        test: /\.(js|jsx)$/,
+        use: {
+          loader: 'babel-loader',
+          query: {
+            presets: [
+              ['env', {
+                targets: {
+                  browsers: ['last 2 versions']
+                }
+              }]
+            ]
+          }
+        }
+      }
+    ]
   }
 };
+
+module.exports = config;
