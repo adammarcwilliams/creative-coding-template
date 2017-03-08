@@ -26,6 +26,23 @@ class CanvasCTX {
     });
     console.log('resize: ' + w + ':' + h);
   }
+
+  myEllipse (x, y, width, height) {
+    if (height == undefined) { height = width; }
+    this.beginPath();
+    for(var i=0; i<Math.PI*2; i+=Math.PI/16) {
+    this.lineTo(x+(Math.cos(i)*width/2), y+(Math.sin(i)*height/2));
+    }
+    this.closePath();
+    this.stroke();
+  };
+
+   fillEllipse (x, y, width, height) {
+    if (height == undefined) height = width;
+    this.myEllipse(x,y,width, height);
+    this.fill();
+    this.beginPath();
+  };
 }
 
 export default CanvasCTX;
